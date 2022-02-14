@@ -15,4 +15,10 @@ public interface AlbumService {
     boolean deleteById(Long id);
 
     boolean deleteAll();
+
+    Optional<Album> findByName(String name);
+
+    List<Album> findByComposerName(String artist);
+
+    Optional<Album> findBySongTittle(String tittle);
 }

@@ -1,5 +1,6 @@
 package com.gomez.SongsAPI.controllers;
 
+import com.gomez.SongsAPI.entities.Album;
 import com.gomez.SongsAPI.entities.Song;
 import com.gomez.SongsAPI.service.SongService;
 import org.springframework.http.ResponseEntity;
@@ -24,13 +25,38 @@ public class SongController {
         return songService.findAll();
     }
 
-    @GetMapping("/song")
+    @GetMapping("/id")
     public ResponseEntity<Song> findById(@RequestParam(required = false)Long id){
         Optional<Song> songOpt = songService.findById(id);
         if(songOpt.isEmpty())
             return ResponseEntity.notFound().build();
         Song song = songOpt.get();
         return ResponseEntity.ok(song);
+    }
+
+    @GetMapping("/song")
+    public ResponseEntity<Song> findByTitle(@RequestParam(required = false)String tittle){
+        Optional<Song> songOpt = songService.findByTittle(tittle);
+        if(songOpt.isEmpty())
+            return ResponseEntity.notFound().build();
+        Song song = songOpt.get();
+        return ResponseEntity.ok(song);
+    }
+    @GetMapping("/composer")
+    public List<Song> findByComposer(@RequestParam(required = false)String name){
+
+        return songService.findByComposerName(name);
+    }
+
+    @GetMapping("/album")
+    public List<Song> findByAlbum(@RequestParam(required = false)String name){
+
+        return songService.findByAlbumName(name);
+    }
+
+    @GetMapping("/videoclip")
+    public List<Song> findByVideoClip(){
+        return songService.findByVideoClip();
     }
 
     @PostMapping("/song")

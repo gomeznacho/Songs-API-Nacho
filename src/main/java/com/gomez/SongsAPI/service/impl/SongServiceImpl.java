@@ -1,5 +1,6 @@
 package com.gomez.SongsAPI.service.impl;
 
+import com.gomez.SongsAPI.entities.Album;
 import com.gomez.SongsAPI.entities.Song;
 import com.gomez.SongsAPI.repositories.SongRepository;
 import com.gomez.SongsAPI.service.SongService;
@@ -48,5 +49,28 @@ public class SongServiceImpl implements SongService {
     public boolean deleteAll() {
         songRepository.deleteAll();
         return true;
+    }
+
+    @Override
+    public Optional<Song> findByTittle(String tittle) {
+        Optional<Song> songOpt = songRepository.findByTittleIgnoreCase(tittle);
+        if(songOpt.isEmpty())
+            return Optional.empty();
+        return songOpt;
+    }
+
+    @Override
+    public List<Song> findByComposerName(String artist) {
+        return songRepository.findAllByComposersArtisticNameIgnoreCase(artist);
+    }
+
+    @Override
+    public List<Song> findByAlbumName(String album) {
+        return songRepository.findAllByAlbumNameIgnoreCase(album);
+    }
+
+    @Override
+    public List<Song> findByVideoClip() {
+        return songRepository.findAllByVideoclipNotNull();
     }
 }

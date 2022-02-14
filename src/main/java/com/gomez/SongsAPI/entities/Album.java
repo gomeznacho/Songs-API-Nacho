@@ -1,5 +1,7 @@
 package com.gomez.SongsAPI.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -13,10 +15,12 @@ public class Album {
 
     private String name;
 
+    @JsonIgnoreProperties(value={"albums", "writtenSongs"})
     @ManyToOne
     @JoinColumn(name = "composer_id", foreignKey = @ForeignKey(name="fk_album_composer"))
     private Composer composer;
 
+    @JsonIgnoreProperties(value="album")
     @OneToMany(fetch = FetchType.EAGER, mappedBy="album")
     private Set<Song> songs;
 

@@ -1,6 +1,7 @@
 package com.gomez.SongsAPI.service.impl;
 
 import com.gomez.SongsAPI.entities.Composer;
+import com.gomez.SongsAPI.entities.Song;
 import com.gomez.SongsAPI.repositories.ComposerRepository;
 import com.gomez.SongsAPI.service.ComposerService;
 import org.springframework.stereotype.Service;
@@ -45,5 +46,23 @@ public class ComposerServiceImpl implements ComposerService {
     @Override
     public Composer save(Composer composer) {
         return composerRepository.save(composer);
+    }
+
+    @Override
+    public Optional<Composer> findByArtisticName(String name) {
+        if(name == null)
+            return Optional.empty();
+
+        return composerRepository.findByArtisticNameIgnoreCase(name);
+    }
+
+    @Override
+    public List<Composer> findByAlbumName(String name) {
+        return composerRepository.findAllByAlbumsNameIgnoreCase(name);
+    }
+
+    @Override
+    public List<Composer> findBySongsTittle(String tittle) {
+        return composerRepository.findAllByWrittenSongsTittleIgnoreCase(tittle);
     }
 }

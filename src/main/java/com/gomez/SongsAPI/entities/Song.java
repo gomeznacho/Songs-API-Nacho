@@ -1,6 +1,5 @@
 package com.gomez.SongsAPI.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -16,7 +15,7 @@ public class Song {
     @Column(name="song_id")
     private Long id;
 
-    private String title;
+    private String tittle;
 
     @Column(name= "release_date")
     private LocalDate releaseDate;
@@ -30,6 +29,7 @@ public class Song {
     @JoinColumn(name = "album_id", foreignKey=@ForeignKey(name="fk_album_id"))
     private Album album;
 
+    @JsonIgnoreProperties(value={"songs", "albums", "writtenSongs"})
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="song_composer",
             joinColumns= @JoinColumn(name="song_id", foreignKey=@ForeignKey(name="fk_song_id")),
@@ -39,9 +39,9 @@ public class Song {
     public Song() {
     }
 
-    public Song(Long id, String title, LocalDate releaseDate, URL videoclip, URL url) {
+    public Song(Long id, String tittle, LocalDate releaseDate, URL videoclip, URL url) {
         this.id = id;
-        this.title = title;
+        this.tittle = tittle;
         this.releaseDate = releaseDate;
         this.videoclip = videoclip;
         this.url = url;
@@ -55,12 +55,12 @@ public class Song {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTittle() {
+        return tittle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTittle(String tittle) {
+        this.tittle = tittle;
     }
 
 

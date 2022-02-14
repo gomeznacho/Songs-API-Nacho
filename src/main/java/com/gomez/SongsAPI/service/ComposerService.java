@@ -16,4 +16,10 @@ public interface ComposerService {
     boolean deleteById(Long id);
 
     Composer save(Composer composer);
+
+    Optional<Composer> findByArtisticName(String name);
+
+    List<Composer> findByAlbumName(String name);
+
+    List<Composer> findBySongsTittle(String tittle);
 }

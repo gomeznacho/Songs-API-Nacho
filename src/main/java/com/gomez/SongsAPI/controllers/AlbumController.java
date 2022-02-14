@@ -2,6 +2,7 @@ package com.gomez.SongsAPI.controllers;
 
 import com.gomez.SongsAPI.entities.Album;
 
+import com.gomez.SongsAPI.entities.Composer;
 import com.gomez.SongsAPI.entities.Song;
 import com.gomez.SongsAPI.service.AlbumService;
 import org.springframework.http.ResponseEntity;
@@ -25,13 +26,36 @@ public class AlbumController {
         return albumService.findAllAlbums();
     }
 
-    @GetMapping("/album")
+    @GetMapping("/id")
     public ResponseEntity<Album> findAlbumById(@RequestParam Long id){
         Optional<Album> albumOptional = albumService.findById(id);
         if(albumOptional.isPresent())
             return ResponseEntity.ok(albumOptional.get());
 
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/album")
+    public ResponseEntity<Album> findByName(@RequestParam(required = false)String name){
+        Optional<Album> albumOpt = albumService.findByName(name);
+        if(albumOpt.isEmpty())
+            return ResponseEntity.notFound().build();
+        Album album = albumOpt.get();
+        return ResponseEntity.ok(album);
+    }
+
+    @GetMapping("/composer")
+    public List<Album> findByComposer(@RequestParam(required = false)String artist){
+
+        return albumService.findByComposerName(artist);
+    }
+    @GetMapping("/song")
+    public ResponseEntity<Album> findBySongTittle(@RequestParam(required = false)String tittle){
+        Optional<Album> albumOpt = albumService.findBySongTittle(tittle);
+        if(albumOpt.isEmpty())
+            return ResponseEntity.notFound().build();
+        Album album = albumOpt.get();
+        return ResponseEntity.ok(album);
     }
 
     @PostMapping("/album")

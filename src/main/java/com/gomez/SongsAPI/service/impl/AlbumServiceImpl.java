@@ -48,4 +48,19 @@ public class AlbumServiceImpl implements AlbumService {
         albumRepository.deleteAll();
         return true;
     }
+
+    @Override
+    public Optional<Album> findByName(String name) {
+        return albumRepository.findAllByNameIgnoreCase(name);
+    }
+
+    @Override
+    public List<Album> findByComposerName(String artist) {
+        return albumRepository.findAllByComposerArtisticNameIgnoreCase(artist);
+    }
+
+    @Override
+    public Optional<Album> findBySongTittle(String tittle) {
+        return albumRepository.findBySongsTittleIgnoreCase(tittle);
+    }
 }
