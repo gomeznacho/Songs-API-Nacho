@@ -1,5 +1,8 @@
 package com.gomez.SongsAPI.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.net.URL;
 import java.time.LocalDate;
@@ -10,27 +13,39 @@ public class Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="song_id")
     private Long id;
 
     private String title;
 
-    private String album;
-
     @Column(name= "release_date")
     private LocalDate releaseDate;
 
-    private Boolean videoclip;
+    private URL videoclip;
 
     private URL url;
 
-    @ManyToMany
-    @JoinTable(name = "song_artist",
-            joinColumns = {
-            @JoinColumn(name = "song_id")},
-            inverseJoinColumns = {
-            @JoinColumn(name = "artist_id")})
-    Set<Composer> composers;
+    @JsonIgnoreProperties(value={"songs", "composer"})
+    @ManyToOne/*(fetch = FetchType.EAGER)*/
+    @JoinColumn(name = "album_id", foreignKey=@ForeignKey(name="fk_album_id"))
+    private Album album;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="song_composer",
+            joinColumns= @JoinColumn(name="song_id", foreignKey=@ForeignKey(name="fk_song_id")),
+            inverseJoinColumns= @JoinColumn(name="composer_id", foreignKey=@ForeignKey(name="fk_composer_id")))
+    private Set<Composer> composers;
+
+    public Song() {
+    }
+
+    public Song(Long id, String title, LocalDate releaseDate, URL videoclip, URL url) {
+        this.id = id;
+        this.title = title;
+        this.releaseDate = releaseDate;
+        this.videoclip = videoclip;
+        this.url = url;
+    }
 
     public Long getId() {
         return id;
@@ -48,13 +63,6 @@ public class Song {
         this.title = title;
     }
 
-    public String getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(String album) {
-        this.album = album;
-    }
 
     public LocalDate getReleaseDate() {
         return releaseDate;
@@ -64,11 +72,11 @@ public class Song {
         this.releaseDate = releaseDate;
     }
 
-    public Boolean getVideoclip() {
+    public URL getVideoclip() {
         return videoclip;
     }
 
-    public void setVideoclip(Boolean videoclip) {
+    public void setVideoclip(URL videoclip) {
         this.videoclip = videoclip;
     }
 
@@ -78,6 +86,14 @@ public class Song {
 
     public void setUrl(URL url) {
         this.url = url;
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
     }
 
     public Set<Composer> getComposers() {

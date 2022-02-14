@@ -1,9 +1,9 @@
 package com.gomez.SongsAPI.repositories;
 
-import com.gomez.SongsAPI.entities.Composer;
+import com.gomez.SongsAPI.entities.Album;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ArtistRepository extends JpaRepository<Composer, Long> {
+public interface AlbumRepository extends JpaRepository<Album, Long> {
 }
