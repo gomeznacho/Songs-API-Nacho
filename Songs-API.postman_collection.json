@@ -606,7 +606,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/user/register",
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/user/login",
 									"protocol": "https",
 									"host": [
 										"songs-api-nacho",
@@ -617,7 +617,7 @@
 										"api",
 										"v1",
 										"user",
-										"register"
+										"login"
 									]
 								}
 							},
