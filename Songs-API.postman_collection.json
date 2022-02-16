@@ -68,7 +68,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://songs-api-nacho.herokuapp.com/songs/song?tittle=crear por crear",
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/songs/song?tittle=crear+por+crear",
 									"protocol": "https",
 									"host": [
 										"songs-api-nacho",
@@ -76,13 +76,15 @@
 										"com"
 									],
 									"path": [
+										"api",
+										"v1",
 										"songs",
 										"song"
 									],
 									"query": [
 										{
 											"key": "tittle",
-											"value": "crear por crear"
+											"value": "crear+por+crear"
 										}
 									]
 								}
@@ -95,7 +97,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://songs-api-nacho.herokuapp.com/composer?name=jimbo+jonez",
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/songs/composer?name=jimbo+jonez",
 									"protocol": "https",
 									"host": [
 										"songs-api-nacho",
@@ -103,6 +105,9 @@
 										"com"
 									],
 									"path": [
+										"api",
+										"v1",
+										"songs",
 										"composer"
 									],
 									"query": [
@@ -121,7 +126,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://songs-api-nacho.herokuapp.com/songs/videoclip",
+									"raw": "https://songs-api-nacho.herokuapp.com/songs/api/v1/songs/videoclip",
 									"protocol": "https",
 									"host": [
 										"songs-api-nacho",
@@ -129,6 +134,9 @@
 										"com"
 									],
 									"path": [
+										"songs",
+										"api",
+										"v1",
 										"songs",
 										"videoclip"
 									]
