@@ -1,5 +1,7 @@
 package com.gomez.SongsAPI.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +12,7 @@ public class User {
 
     private String username;
 
+    @JsonIgnore
     private String password;
 
     private String email;
