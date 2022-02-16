@@ -126,7 +126,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://songs-api-nacho.herokuapp.com/songs/api/v1/songs/videoclip",
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/songs/videoclip",
 									"protocol": "https",
 									"host": [
 										"songs-api-nacho",
@@ -134,7 +134,6 @@
 										"com"
 									],
 									"path": [
-										"songs",
 										"api",
 										"v1",
 										"songs",
@@ -252,12 +251,13 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/api/v1/songs/all",
-									"protocol": "http",
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/songs/all",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
 									],
-									"port": "8080",
 									"path": [
 										"api",
 										"v1",
@@ -274,12 +274,13 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/api/v1/songs/song?id=1",
-									"protocol": "http",
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/songs/song?id=1",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
 									],
-									"port": "8080",
 									"path": [
 										"api",
 										"v1",
@@ -387,7 +388,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://songs-api-nacho.herokuapp.com/albums/composer?artist=jimbo+jonez",
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/albums/composer?artist=jimbo+jonez",
 									"protocol": "https",
 									"host": [
 										"songs-api-nacho",
@@ -395,6 +396,8 @@
 										"com"
 									],
 									"path": [
+										"api",
+										"v1",
 										"albums",
 										"composer"
 									],
