@@ -3,10 +3,11 @@ package com.gomez.SongsAPI.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-public class Album {
+public class Album implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,12 +17,12 @@ public class Album {
     private String name;
 
     @JsonIgnoreProperties(value={"albums", "writtenSongs"})
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER/*, cascade = CascadeType.ALL*/)
     @JoinColumn(name = "composer_id", foreignKey = @ForeignKey(name="fk_album_composer"))
     private Composer composer;
 
     @JsonIgnoreProperties(value="album")
-    @OneToMany(fetch = FetchType.EAGER, mappedBy="album")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="album", cascade = CascadeType.ALL)
     private Set<Song> songs;
 
     public Album() {

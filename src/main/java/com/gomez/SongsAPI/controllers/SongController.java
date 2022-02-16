@@ -6,8 +6,10 @@ import com.gomez.SongsAPI.service.SongService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Month;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1/songs")
@@ -56,7 +58,16 @@ public class SongController {
 
     @GetMapping("/videoclip")
     public List<Song> findByVideoClip(){
+
         return songService.findByVideoClip();
+    }
+
+    @GetMapping("/date")
+    public List<Song> findbyDate(@RequestParam(required = false) Integer year, @RequestParam(required = false) Integer month){
+        if(month == null)
+            return songService.findByDateYear(year);
+
+        return songService.findByDateMonth(year, month);
     }
 
     @PostMapping("/song")
@@ -82,10 +93,15 @@ public class SongController {
         if(id==null || id <= 0)
             return ResponseEntity.badRequest().build();
 
-        if(songService.deleteById(id))
-            return ResponseEntity.noContent().build();
+        Song song = songService.findById(id).get();
+        Album album = song.getAlbum();
+        album.getSongs().remove(song);
 
-        return ResponseEntity.badRequest().build();
+        if(songService.deleteById(id)) {
+
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
     @DeleteMapping("/all")
     public ResponseEntity<Song> deleteAll(){

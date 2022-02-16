@@ -25,4 +25,7 @@ public interface SongService {
 
     List<Song> findByVideoClip();
 
+    List<Song> findByDateYear(Integer year);
+
+    List<Song> findByDateMonth(Integer year, Integer month);
 }

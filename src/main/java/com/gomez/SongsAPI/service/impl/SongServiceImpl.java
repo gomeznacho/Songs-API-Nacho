@@ -6,6 +6,7 @@ import com.gomez.SongsAPI.repositories.SongRepository;
 import com.gomez.SongsAPI.service.SongService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -72,5 +73,20 @@ public class SongServiceImpl implements SongService {
     @Override
     public List<Song> findByVideoClip() {
         return songRepository.findAllByVideoclipNotNull();
+    }
+
+    @Override
+    public List<Song> findByDateYear(Integer year) {
+        LocalDateTime start = LocalDateTime.of(year, 1, 1,0, 0);
+        LocalDateTime end = start.plusYears(1);
+
+        return songRepository.findAllByReleaseDateBetween(start, end);
+    }
+
+    @Override
+    public List<Song> findByDateMonth(Integer year, Integer month) {
+        LocalDateTime start = LocalDateTime.of(year, month, 1,0, 0);
+        LocalDateTime end = start.plusMonths(1);
+        return songRepository.findAllByReleaseDateBetween(start, end);
     }
 }

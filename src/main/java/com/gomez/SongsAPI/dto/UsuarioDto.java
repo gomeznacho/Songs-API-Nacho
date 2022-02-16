@@ -1,6 +1,7 @@
-package es.gom.ApiFC.dto;
+package com.gomez.SongsAPI.dto;
 
-import es.gom.ApiFC.entities.Usuario;
+
+import com.gomez.SongsAPI.entities.Usuario;
 
 public class UsuarioDto {
     private String email;

@@ -3,23 +3,28 @@ package com.gomez.SongsAPI.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class User {
+public class Usuario implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable=false, length=45, unique = true)
     private String username;
 
     @JsonIgnore
+    @Column(nullable=false)
     private String password;
 
+    @Column(nullable=false, length=45, unique = true)
     private String email;
 
-    public User(){}
+    public Usuario(){}
 
-    public User(Long id, String username, String password, String email) {
+    public Usuario(Long id, String username, String password, String email) {
         this.id = id;
         this.username = username;
         this.password = password;

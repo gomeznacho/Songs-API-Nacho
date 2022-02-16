@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1/albums")
@@ -76,11 +77,17 @@ public class AlbumController {
     }
 
     @DeleteMapping("/album")
-    public ResponseEntity<Album> deleteAlbum(@RequestBody Long id){
+    public ResponseEntity<Album> deleteAlbum(@RequestParam Long id){
         if(id==null || id <= 0)
             return ResponseEntity.badRequest().build();
+
+        Album album = albumService.findById(id).get();
+        Composer composer = album.getComposer();
+        composer.getAlbums().remove(album);
+
         if(albumService.deleteById(id))
             return ResponseEntity.noContent().build();
+
 
         return ResponseEntity.badRequest().build();
     }

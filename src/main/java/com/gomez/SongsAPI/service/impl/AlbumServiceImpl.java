@@ -37,7 +37,7 @@ public class AlbumServiceImpl implements AlbumService {
 
     @Override
     public boolean deleteById(Long id) {
-        if(id == null || id <= 0)
+        if(id == null || !albumRepository.existsById(id))
             return false;
         albumRepository.deleteById(id);
         return true;

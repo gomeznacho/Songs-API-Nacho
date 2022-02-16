@@ -3,34 +3,37 @@ package com.gomez.SongsAPI.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.net.URL;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
-public class Song {
+public class Song implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="song_id")
     private Long id;
 
+    @Column(nullable=false, length=50)
     private String tittle;
 
     @Column(name= "release_date")
-    private LocalDate releaseDate;
+    private LocalDateTime releaseDate;
 
     private URL videoclip;
 
+    @Column(nullable=false)
     private URL url;
 
     @JsonIgnoreProperties(value={"songs", "composer"})
-    @ManyToOne/*(fetch = FetchType.EAGER)*/
+    @ManyToOne(fetch = FetchType.EAGER/*, cascade = CascadeType.ALL*/)
     @JoinColumn(name = "album_id", foreignKey=@ForeignKey(name="fk_album_id"))
     private Album album;
 
     @JsonIgnoreProperties(value={"songs", "albums", "writtenSongs"})
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER/*, cascade = CascadeType.ALL*/)
     @JoinTable(name="song_composer",
             joinColumns= @JoinColumn(name="song_id", foreignKey=@ForeignKey(name="fk_song_id")),
             inverseJoinColumns= @JoinColumn(name="composer_id", foreignKey=@ForeignKey(name="fk_composer_id")))
@@ -39,7 +42,7 @@ public class Song {
     public Song() {
     }
 
-    public Song(Long id, String tittle, LocalDate releaseDate, URL videoclip, URL url) {
+    public Song(Long id, String tittle, LocalDateTime releaseDate, URL videoclip, URL url) {
         this.id = id;
         this.tittle = tittle;
         this.releaseDate = releaseDate;
@@ -64,11 +67,11 @@ public class Song {
     }
 
 
-    public LocalDate getReleaseDate() {
+    public LocalDateTime getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(LocalDate releaseDate) {
+    public void setReleaseDate(LocalDateTime releaseDate) {
         this.releaseDate = releaseDate;
     }
 

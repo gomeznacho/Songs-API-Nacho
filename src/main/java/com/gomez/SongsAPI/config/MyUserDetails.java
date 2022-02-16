@@ -1,4 +1,4 @@
-package es.gom.ApiFC.config;
+package com.gomez.SongsAPI.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +16,7 @@ import java.util.List;
 public class MyUserDetails implements UserDetails {
     private String username;
     private String password;
-
+    private String email;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

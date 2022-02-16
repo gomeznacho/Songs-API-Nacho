@@ -39,12 +39,16 @@ public class ComposerServiceImpl implements ComposerService {
 
     @Override
     public boolean deleteById(Long id) {
+        if(id == null || !composerRepository.existsById(id))
+            return false;
+
         composerRepository.deleteById(id);
         return true;
     }
 
     @Override
     public Composer save(Composer composer) {
+
         return composerRepository.save(composer);
     }
 

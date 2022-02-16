@@ -1,4 +1,4 @@
-package es.gom.ApiFC.config;
+package com.gomez.SongsAPI.config;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.SignatureException;

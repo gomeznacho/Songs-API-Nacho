@@ -1,4 +1,4 @@
-package es.gom.ApiFC.dto;
+package com.gomez.SongsAPI.dto;
 
 public class LoginUsuario {
 
