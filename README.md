@@ -17,6 +17,11 @@ End-points:
         y borrar artista borrando albums y canciones
     - Registro y login de usuario
 
-La aplicación lleva un archivo sql para inicializar la base de datos con datos reales y así se puedan hacer consultas directamente.
+La aplicación lleva un archivo sql para inicializar la base de datos 
+con datos reales y así se puedan hacer consultas directamente.
 
+Está desplegada en Heroku:
 
+https://songs-api-nacho.herokuapp.com
+
+He incluido en el repositorio las colecciones de postman para trabajar con la aplicación desplegada y en local
