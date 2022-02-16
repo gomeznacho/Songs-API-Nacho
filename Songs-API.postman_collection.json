@@ -1,0 +1,871 @@
+{
+	"info": {
+		"_postman_id": "dac2c244-f8c2-4863-9206-3ad1fd87a996",
+		"name": "Songs-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Canciones heroku",
+			"item": [
+				{
+					"name": "Canciones Copy",
+					"item": [
+						{
+							"name": "Todas las canciones",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/songs",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"songs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Canción por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/songs/id?id=2",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"songs",
+										"id"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Canción por nombre",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/songs/song?tittle=crear por crear",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"songs",
+										"song"
+									],
+									"query": [
+										{
+											"key": "tittle",
+											"value": "crear por crear"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Canciones por compositor",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/composer?name=jimbo+jonez",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"composer"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "jimbo+jonez"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Canciones por videoclip",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/songs/videoclip",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"songs",
+										"videoclip"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Canciones por album",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/songs/album?name=el+caso+jonez",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"songs",
+										"album"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "el+caso+jonez"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Canciones por fecha",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/songs/date?year=2018",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"songs",
+										"date"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2018"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Añadir cancion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/songs",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"songs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar cancion",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/songs",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"songs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar todas las canciones",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/songs/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"songs",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar por ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/songs/song?id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"songs",
+										"song"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Albums Copy",
+					"item": [
+						{
+							"name": "Todas los albums",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/albums",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Álbum por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/albums/album?id=1",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"albums",
+										"album"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Álbum por nombre",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/albums/album?name=El+caso+jonez",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"albums",
+										"album"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "El+caso+jonez"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Albums por artista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/albums/composer?artist=jimbo+jonez",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"albums",
+										"composer"
+									],
+									"query": [
+										{
+											"key": "artist",
+											"value": "jimbo+jonez"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Albums por canción",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/albums/song?tittle=crear+por+crear",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"albums",
+										"song"
+									],
+									"query": [
+										{
+											"key": "tittle",
+											"value": "crear+por+crear"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "album por compositor",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/albums/composer?artist=jimbo+jonez",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"albums",
+										"composer"
+									],
+									"query": [
+										{
+											"key": "artist",
+											"value": "jimbo+jonez"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Añadir álbum",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/albums",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar álbum",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/albums",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar todos los albums",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/albums/all",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"albums",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar por ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/albums/album?id=1",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"albums",
+										"album"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Usuarios Copy",
+					"item": [
+						{
+							"name": "Registro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"josan@asd.asd\",\r\n    \"username\": \"postman1\",\r\n    \"password\" : \"asdf\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/user/register",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"josan@asd.asd\",\r\n    \"username\": \"postman1\",\r\n    \"password\" : \"asdf\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/user/register",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Compositores Copy",
+					"item": [
+						{
+							"name": "Todas los compositores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/composers/all",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"composers",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Compositor por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/composers/composer?id=1",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"composers",
+										"composer"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Compositor por nombre",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/composers/composer?name=jimbo+jonez",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"composers",
+										"composer"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "jimbo+jonez"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Compositor por álbum",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/composers/album?name=el+caso+jonez",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"composers",
+										"album"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "el+caso+jonez"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Compositores por canción",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/composers/song?tittle=crear+por+crear",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"composers",
+										"song"
+									],
+									"query": [
+										{
+											"key": "tittle",
+											"value": "crear+por+crear"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Añadir compositor",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/composers",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"composers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar compositor",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/composers",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"composers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar todos los compositores",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/composers/all",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"composers",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar por ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://songs-api-nacho.herokuapp.com/api/v1/composers/composer?id=1",
+									"protocol": "https",
+									"host": [
+										"songs-api-nacho",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"composers",
+										"composer"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
